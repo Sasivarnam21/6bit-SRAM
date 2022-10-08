@@ -1,0 +1,22 @@
+* C:\Users\jagad\Desktop\ESIM\SASI\SASI.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 10/08/22 21:30:52
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+SC4  output Net-_SC1-Pad3_ GND GND sky130_fd_pr__nfet_01v8		
+SC1  input Net-_SC1-Pad2_ Net-_SC1-Pad3_ Net-_SC1-Pad3_ sky130_fd_pr__nfet_01v8		
+SC3  Net-_SC1-Pad3_ output GND GND sky130_fd_pr__nfet_01v8		
+SC6  output Net-_SC1-Pad2_ Net-_SC6-Pad3_ Net-_SC6-Pad3_ sky130_fd_pr__nfet_01v8		
+SC2  Net-_SC2-Pad1_ output Net-_SC1-Pad3_ Net-_SC1-Pad3_ sky130_fd_pr__pfet_01v8		
+SC5  Net-_SC2-Pad1_ Net-_SC1-Pad3_ output output sky130_fd_pr__pfet_01v8		
+v2  Net-_SC2-Pad1_ GND DC		
+v1  Net-_SC1-Pad2_ GND pulse		
+v3  input GND pulse		
+U2  output plot_v1		
+U1  input plot_v1		
+scmode1  SKY130mode		
+
+.end

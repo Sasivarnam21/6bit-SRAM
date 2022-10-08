@@ -1,0 +1,32 @@
+* c:\users\jagad\desktop\esim\sasi\sasi.cir
+
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__inductors.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__linear.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__pnp.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__r+c.model.spice"
+.lib "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130.lib.spice" tt
+xsc4 output net-_sc1-pad3_ gnd gnd sky130_fd_pr__nfet_01v8 M=1 L=1
+xsc1 input net-_sc1-pad2_ net-_sc1-pad3_ net-_sc1-pad3_ sky130_fd_pr__nfet_01v8 M=1 L=1
+xsc3 net-_sc1-pad3_ output gnd gnd sky130_fd_pr__nfet_01v8 M=1 L=1
+xsc6 output net-_sc1-pad2_ net-_sc6-pad3_ net-_sc6-pad3_ sky130_fd_pr__nfet_01v8 M=1 L=1
+xsc2 net-_sc2-pad1_ output net-_sc1-pad3_ net-_sc1-pad3_ sky130_fd_pr__pfet_01v8 M=1 L=1
+xsc5 net-_sc2-pad1_ net-_sc1-pad3_ output output sky130_fd_pr__pfet_01v8 M=1 L=1
+v2 net-_sc2-pad1_ gnd  dc 5
+v1  net-_sc1-pad2_ gnd pulse(0 2 0.1m 0.1m 0.1m 0.1 2)
+v3  input gnd pulse(0 2 0.1m 0.1m 0.1m 1 2)
+* u2  output plot_v1
+* u1  input plot_v1
+* s c m o d e
+.tran 0.1e-00 20e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(output)
+plot v(input)
+.endc
+.end
